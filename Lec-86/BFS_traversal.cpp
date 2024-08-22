@@ -1,6 +1,7 @@
 #include <vector>
 #include <unordered_map>
 #include <queue>
+#include <iostream>
 
 using namespace std;
 void bfs(vector<vector<int>> adjList, unordered_map<int, bool> &visited, vector<int> &ans, int node)
@@ -34,4 +35,9 @@ vector<int> bfsTraversal(int n, vector<vector<int>> &adj)
     bfs(adj, visited, ans, 0);
 
     return ans;
+}
+int main(){
+    
+    cout<<10%10;
+    return 0;
 }
