@@ -36,8 +36,3 @@ vector<int> bfsTraversal(int n, vector<vector<int>> &adj)
 
     return ans;
 }
-int main(){
-    
-    cout<<10%10;
-    return 0;
-}

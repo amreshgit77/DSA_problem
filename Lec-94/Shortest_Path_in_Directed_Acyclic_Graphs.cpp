@@ -64,7 +64,8 @@ public:
 };
 
 int main()
-{
+{   
+    
     graph G;
     G.addEdge(1, 3, 6);
     G.addEdge(1, 2, 2);

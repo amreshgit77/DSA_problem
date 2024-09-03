@@ -131,7 +131,7 @@ int main()
     {
         heapify(arr, n, i);
     }
-
+        cout << "After Heapify" << endl;
     for (int i = 1; i <= n; i++)
     {
         cout << arr[i] << " ";

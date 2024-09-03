@@ -39,46 +39,46 @@ vector<int> topoSort(int V, vector<int> adj[])
 
 // Topology Sort by BFS ( ** Kahn's Algorithm **  )------------------------------------------------------------------>>>>>
 
-void solve(vector<vector<int>> &adjList, vector<int> &visited, int node, vector<int> &ans)
-{
-    visited[node] = 1;
-
-    for (auto i : adjList[node])
-    {
-        if (!visited[i])
-        {
-            solve(adjList, visited, i, ans);
-        }
-    }
-
-    ans.push_back(node);
-}
-
 vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)
 {
-
-    vector<vector<int>> adjList(v);
-
-    vector<int> visited(v, 0);
-
-    for (int i = 0; i < e; i++)
+    vector<int> ans;
+    vector<vector<int>> adj(v + 1);
+    vector<int>indegree(v,0);
+    for (int i = 0; i < edges.size(); i++)
     {
         int u = edges[i][0];
-        int w = edges[i][1];
-        adjList[u].push_back(w);
+        int v = edges[i][1];
+
+        adj[u].push_back(v);
     }
-
-    vector<int> ans;
-
-    for (int i = 0; i < v; i++)
-    {
-        if (!visited[i])
-        {
-            solve(adjList, visited, i, ans);
-        }
-    }
-
-    reverse(ans.begin(), ans.end());
+         
+         for(int i = 0; i<v; i++){
+             for(auto j : adj[i]){
+                 indegree[j]++;
+             }
+         }
+         
+         queue<int>q;
+         
+         for(int i = 0; i<v; i++){
+             if(indegree[i]==0){
+                 q.push(i);
+             }
+         }
+         
+         int cnt = 0;
+         while(!q.empty()){
+             int node = q.front();
+             q.pop();
+             ans.push_back(node);
+             for(auto i : adj[node]){
+                 indegree[i]--;
+                 if(indegree[i] == 0){
+                     
+                     q.push(i);
+                 }
+             }
+         }
 
     return ans;
 }
