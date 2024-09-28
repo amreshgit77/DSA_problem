@@ -24,7 +24,7 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
     parent[1]= -1;
 
 
-     for(int i = 1; i <= n; i++) {
+    for(int i = 1; i <= n; i++) {
         int mini = INT_MAX;
         int u;
 
